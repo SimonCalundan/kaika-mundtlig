@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1e2749;
+  overflow-x: hidden;
+}
+
+.custom-outline {
+  color: transparent;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+.animate-line {
+  height: 200vh;
+}
