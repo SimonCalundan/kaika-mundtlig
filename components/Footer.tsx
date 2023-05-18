@@ -4,20 +4,20 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="w-screen bg-space-cadet h-[25rem] z-50">
+    <footer className="w-screen bg-space-cadet h-[25rem] z-[999]">
       <Image
         className=" w-screen bg-space-cadet"
         alt="Footer overlay"
-        src="/layered-peaks-haikei.png"
+        src="/overlay4.svg"
         width={1920}
-        height={500}
+        height={100}
         draggable={false}
       />
       <div className=" w-full bg-true-black h-auto ">
         {/* Row 1 Logo */}
         <div className="flex justify-start items-center h-20 py-20 px-20">
           <Image
-            className="object-contain"
+            className="object-contain z-[999]"
             alt="Logo"
             src="/logo_white.png"
             width={150}

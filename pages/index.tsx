@@ -7,6 +7,8 @@ import { useInView } from "react-intersection-observer";
 import { ScrollReveal } from "reveal-on-scroll-react";
 import Footer from "@/components/Footer";
 import ArtistCard from "@/components/ArtistCard";
+import BookingModal from "@/components/BookingModal";
+import CompanyLogo from "@/components/CompanyLogo";
 
 import Head from "next/head";
 
@@ -17,6 +19,8 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { ref, inView, entry } = useInView(undefined);
   const [showNav, setShowNav] = useState(false);
+  const [language, setLanguage] = useState("da");
+  const [bookingModalOpen, setBookingModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +64,10 @@ export default function Home() {
         <link rel="icon" href="/kaika_logo.png" />
       </Head>
       <main className={montserrat.className}>
+        {/* Booking modal */}
+        {bookingModalOpen && (
+          <BookingModal onClick={() => setBookingModalOpen(false)} />
+        )}
         {/* Landing page */}
         <section className=" h-screen w-screen relative flex flex-col p-8">
           <div
@@ -78,24 +86,78 @@ export default function Home() {
             <div
               className={`left-0 h-screen p-8 transition-all duration-500 z-[9999999] absolute top-0 ${
                 menuOpen ? "left-0" : "left-[-50%]"
-              } w-80 h-full bg-space-cadet flex flex-col`}
+              } w-80 h-full bg-true-black bg-opacity-95 backdrop-blur flex flex-col`}
             >
-              <button onClick={() => setMenuOpen(!menuOpen)}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className={`w-12 h-12 text-white ${
-                    menuOpen ? "opacity-100" : "opacity-0"
-                  } transition-all delay-300 duration-700 `}
+              <div className=" flex items-center justify-between">
+                <button onClick={() => setMenuOpen(!menuOpen)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className={`w-12 h-12 text-white ${
+                      menuOpen ? "opacity-100" : "opacity-0"
+                    } transition-all delay-300 duration-700 `}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                {/* Language options */}
+                <div className=" flex gap-1">
+                  <button
+                    className={`text-white text-base font-bold uppercase ${
+                      language === "da" && "underline underline-offset-2"
+                    }`}
+                  >
+                    {" "}
+                    DK{" "}
+                  </button>
+                  <button className="text-white text-base font-bold uppercase">
+                    {" "}
+                    EN{" "}
+                  </button>
+                  <button className="text-white text-base font-bold uppercase">
+                    {" "}
+                    DE{" "}
+                  </button>
+                </div>
+              </div>
+              {/* Menu links */}
+              <div className=" flex flex-col py-12 px-4 text-3xl uppercase text-mint-green font-bold gap-y-8">
+                <Link
+                  className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
+                  href="/concerts"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
+                  Koncerter
+                </Link>
+                <Link
+                  className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
+                  href="/artists"
+                >
+                  Artister
+                </Link>
+                <Link
+                  className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
+                  href="/"
+                >
+                  Om os
+                </Link>
+                <Link
+                  className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
+                  href="/"
+                >
+                  Kontakt
+                </Link>
+                <Link
+                  className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
+                  href="/"
+                >
+                  Booking
+                </Link>
+              </div>
             </div>
             {/* Burger menu */}
             <button onClick={() => setMenuOpen(!menuOpen)} className=" ">
@@ -114,13 +176,15 @@ export default function Home() {
             </button>
 
             {/* Logo */}
-            <Image
-              className=" translate-x-[-50%] absolute left-1/2 z-10"
-              src="/kaika_logo.png"
-              alt="kaika logo"
-              width={130}
-              height={130}
-            />
+            <Link href="/">
+              <Image
+                className=" translate-x-[-50%] absolute left-1/2 z-10"
+                src="/kaika_logo.png"
+                alt="kaika logo"
+                width={130}
+                height={130}
+              />
+            </Link>
 
             {/* CTA button */}
             <Link href="/" className=" ">
@@ -139,12 +203,12 @@ export default function Home() {
               height={800}
               draggable={false}
             />
-            <Link
-              href="/"
+            <button
+              onClick={() => setBookingModalOpen(true)}
               className="  uppercase flex justify-center text-2xl items-center py-2 px-12 font-normal text-white border border-mauve my-4 hover:bg-mauve hover:text-space-cadet transition-all duration-300"
             >
               Book her
-            </Link>
+            </button>
           </div>
           {/* Video */}
           <video
@@ -273,9 +337,9 @@ export default function Home() {
                 <div className=" justify-around flex flex-col items-center gap-4 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-mint-green text-mint-green z-50 p-8">
                   <h2 className=" text-4xl font-bold">Festival</h2>
                   <p className=" text-lg font-normal">
-                    Lorem Ipsum og alt det der man plejer at skrive om
-                    festivaler, firmafester og privatarrangementer. Her skal stå
-                    noget fedt okay?
+                    Vi klarer alle arrangementer - store som små. KAIKA leverer
+                    music, lyd/lys og scener til en stor del af landets
+                    festivals. Oplev branchens bedste service!
                   </p>
                   <Link
                     className=" text-lg underline font-normal hover:scale-105 active:scale-95 transition-all duration-300"
@@ -288,9 +352,9 @@ export default function Home() {
                 <div className=" justify-around flex flex-col items-center gap-4 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-sunglow text-sunglow z-50 p-8">
                   <h2 className=" text-4xl font-bold">Firma</h2>
                   <p className=" text-lg font-normal">
-                    Lorem Ipsum og alt det der man plejer at skrive om
-                    festivaler, firmafester og privatarrangementer. Her skal stå
-                    noget fedt okay?
+                    Skal vi sparke gang i festen til jeres næste arrangement? Vi
+                    har gennem årene arrangeret en lang række events og
+                    firmafester, og har stor erfaring med dette!
                   </p>
                   <Link
                     className=" text-lg underline font-normal hover:scale-105 active:scale-95 transition-all duration-300"
@@ -303,9 +367,9 @@ export default function Home() {
                 <div className=" justify-around flex flex-col items-center gap-4 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-mauve text-mauve z-50 p-8">
                   <h2 className=" text-4xl font-bold">Privat</h2>
                   <p className=" text-lg font-normal">
-                    Lorem Ipsum og alt det der man plejer at skrive om
-                    festivaler, firmafester og privatarrangementer. Her skal stå
-                    noget fedt okay?
+                    Booking branchen kan være en jungle fyldt af
+                    valgmuligheder.Vi står til rådighed for din skyld og vi
+                    sørger for en service som opfylder dine behov!
                   </p>
                   <Link
                     className=" text-lg underline font-normal hover:scale-105 active:scale-95 transition-all duration-300"
@@ -316,8 +380,26 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* Footer */}
           </div>
+          {/* Referencer */}
+          <div className=" bg-space-cadet h-auto z-50 w-full flex flex-col items-center pt-20 ">
+            <h2 className=" text-4xl font-bold text-white uppercase my-10">
+              Referencer
+            </h2>
+            {/* Icon wrapper */}
+            <div className=" flex flex-wrap justify-center items-center gap-y-2 gap-x-20 w-full max-w-6xl h-full translate-y-8 ">
+              <CompanyLogo url="/company-icons/carlsberg__logo.png" />
+              <CompanyLogo url="/company-icons/dr__logo.png" />
+              <CompanyLogo url="/company-icons/hugo__boss.png" />
+              <CompanyLogo url="/company-icons/jelling__logo.png" />
+              <CompanyLogo url="/company-icons/lego__logo.png" />
+              <CompanyLogo url="/company-icons/magasin__logo.png" />
+              <CompanyLogo url="/company-icons/smukfest__logo.webp" />
+              <CompanyLogo url="/company-icons/tivoli_logo.png" />
+              <CompanyLogo url="/company-icons/tv2__logo.png" />
+            </div>
+          </div>
+          {/* Footer */}
           <Footer />
         </section>
       </main>
