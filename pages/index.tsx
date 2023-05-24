@@ -316,7 +316,7 @@ export default function Home() {
                 <ArtistCard
                   onClick={() => setArtistModalOpen("Faustix")}
                   name="Outlandish"
-                  image="/presse_kit/OUTLANDISH/Outlandish 2023 stor format.jpg"
+                  image="/presse_kit/OUTLANDISH/Outlandish 2023.jpg"
                 />
                 {/* Artist 2 */}
                 <ArtistCard
