@@ -78,6 +78,12 @@ export default function Home() {
         {/* Artist modals */}
         {artistModalOpen === "Faustix" && (
           <ArtistModal
+            pressekit="tom"
+            link="tom"
+            name="Faustix"
+            image="/presse_kit/OUTLANDISH/Outlandish 2023 stor format.jpg"
+            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam"
+            spotify="tomString"
             onClick={() => {
               setArtistModalOpen("");
             }}
@@ -221,6 +227,7 @@ export default function Home() {
               width={800}
               height={800}
               draggable={false}
+              priority
             />
             <Typewriter
               options={{
@@ -228,7 +235,6 @@ export default function Home() {
                 cursorClassName: "text-2xl font-medium text-white",
                 deleteSpeed: 50,
                 delay: 50,
-                pauseFor: 2000,
                 strings: [
                   "Landsdækkende booking bureau",
                   "Booking af bands, solister, standup og meget mere",
