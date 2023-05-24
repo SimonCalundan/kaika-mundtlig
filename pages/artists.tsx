@@ -91,6 +91,7 @@ const artists = () => {
       <Head>
         <title>KAIKA MUSIC | Artister</title>
         <link rel="icon" href="/kaika_logo.png" />
+        <meta name="description" content="Landsdækkende booking bureau" />
       </Head>
       <main ref={ref} className={montserrat.className}>
         {/* Lines */}
@@ -235,7 +236,7 @@ const artists = () => {
             {/* Artist text */}
             <div className=" flex flex-col justify-center items-center z-10 mx-auto translate-x-[-50%] absolute left-1/2 top-[40%]">
               <Image
-                src="/landing_text.png"
+                src="/artisttext.png"
                 alt="artist text"
                 width={800}
                 height={800}

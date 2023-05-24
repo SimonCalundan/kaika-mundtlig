@@ -40,16 +40,22 @@ const Footer = () => {
             <h2 className=" font-bold text-xl uppercase">Om Kaika</h2>
             <div className=" flex flex-col text-lg">
               <a href="#">Om Kaika</a>
-              <a href="#">Jobs</a>
-              <a href="#">Medarbejdere</a>
-              <a href="#">Værdier</a>
+              <a className="cursor-not-allowed" href="#">
+                Jobs
+              </a>
+              <a className="cursor-not-allowed" href="#">
+                Medarbejdere
+              </a>
+              <a className=" cursor-not-allowed" href="#">
+                Værdier
+              </a>
             </div>
           </div>
           <div className=" flex flex-col">
             <h2 className=" font-bold text-xl uppercase">Musik</h2>
             <div className=" flex flex-col text-lg">
-              <a href="#">Kalender</a>
-              <a href="#">Artister</a>
+              <Link href="/concerts">Kalender</Link>
+              <Link href="/artists">Artister</Link>
             </div>
           </div>
         </div>

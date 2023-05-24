@@ -9,6 +9,8 @@ import Footer from "@/components/Footer";
 import ArtistCard from "@/components/ArtistCard";
 import BookingModal from "@/components/BookingModal";
 import CompanyLogo from "@/components/CompanyLogo";
+import ArtistModal from "@/components/ArtistModal";
+import Typewriter from "typewriter-effect";
 
 import Head from "next/head";
 
@@ -21,6 +23,14 @@ export default function Home() {
   const [showNav, setShowNav] = useState(false);
   const [language, setLanguage] = useState("da");
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
+  const [artistModalOpen, setArtistModalOpen] = useState("");
+
+  const ScrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +72,17 @@ export default function Home() {
       <Head>
         <title>KAIKA MUSIC</title>
         <link rel="icon" href="/kaika_logo.png" />
+        <meta name="description" content="Landsdækkende booking bureau" />
       </Head>
       <main className={montserrat.className}>
+        {/* Artist modals */}
+        {artistModalOpen === "Faustix" && (
+          <ArtistModal
+            onClick={() => {
+              setArtistModalOpen("");
+            }}
+          />
+        )}
         {/* Booking modal */}
         {bookingModalOpen && (
           <BookingModal onClick={() => setBookingModalOpen(false)} />
@@ -203,9 +222,26 @@ export default function Home() {
               height={800}
               draggable={false}
             />
+            <Typewriter
+              options={{
+                wrapperClassName: "text-2xl font-medium text-white",
+                cursorClassName: "text-2xl font-medium text-white",
+                deleteSpeed: 50,
+                delay: 50,
+                pauseFor: 2000,
+                strings: [
+                  "Landsdækkende booking bureau",
+                  "Booking af bands, solister, standup og meget mere",
+                  "Hundredevis af tilfredse kunder",
+                ],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+
             <button
               onClick={() => setBookingModalOpen(true)}
-              className="  uppercase flex justify-center text-2xl items-center py-2 px-12 font-normal text-white border border-mauve my-4 hover:bg-mauve hover:text-space-cadet transition-all duration-300"
+              className=" mt-10  uppercase flex justify-center text-2xl items-center py-2 px-12 font-normal text-white border border-mauve my-4 hover:bg-mauve hover:text-space-cadet transition-all duration-300"
             >
               Book her
             </button>
@@ -272,26 +308,31 @@ export default function Home() {
               <div className=" [&>*:nth-child(2)]:translate-y-20  [&>*:nth-child(5)]:translate-y-20 gap-x-16 gap-y-32 flex flex-wrap w-full h-full items-center justify-center py-20">
                 {/* Artist 1 */}
                 <ArtistCard
+                  onClick={() => setArtistModalOpen("Faustix")}
                   name="Outlandish"
                   image="/presse_kit/OUTLANDISH/Outlandish 2023 stor format.jpg"
                 />
                 {/* Artist 2 */}
                 <ArtistCard
+                  onClick={() => console.log("clicked")}
                   name="Michelsen & Bramsen"
                   image="/presse_kit/MICHELSEN & BRAMSEN/Michelsen & Bramsen(1).jpg"
                 />
                 {/* Artist 3 */}
                 <ArtistCard
+                  onClick={() => console.log("clicked")}
                   name="Zididada"
                   image="/presse_kit/ZIDIDADA/Zididada - Presse Foto.jpg"
                 />
                 {/* Artist 4 */}
                 <ArtistCard
+                  onClick={() => console.log("clicked")}
                   name="Faustix"
                   image="/presse_kit/FAUSTIX/Faustix_november2022_@Nikolaj Osorio_WEB_4.jpg"
                 />
                 {/* Artist 5 */}
                 <ArtistCard
+                  onClick={() => console.log("clicked")}
                   name="Italo Brothers"
                   image="/presse_kit/ITALOBROTHERS/3F0A4859.jpg"
                 />
@@ -311,9 +352,9 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <a
+              <Link
+                href="/artists"
                 className=" flex items-center font-normal text-white text-2xl underline mt-20 mb-80 mx-auto"
-                href="#"
               >
                 <h2>Se alle artisterne </h2>
                 <svg
@@ -330,53 +371,77 @@ export default function Home() {
                     d="M8.25 4.5l7.5 7.5-7.5 7.5"
                   />
                 </svg>
-              </a>
+              </Link>
               {/* Features cards section */}
               <div className=" max-w-6xl mx-auto w-full h-auto flex flex-wrap justify-around gap-8">
                 {/* Card 1 */}
-                <div className=" justify-around flex flex-col items-center gap-4 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-mint-green text-mint-green z-50 p-8">
+                <div className=" justify-around flex flex-col items-center gap-12 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-mint-green text-mint-green z-50 p-8">
                   <h2 className=" text-4xl font-bold">Festival</h2>
-                  <p className=" text-lg font-normal">
+                  <p className=" text-lg font-normal normal-case ">
                     Vi klarer alle arrangementer - store som små. KAIKA leverer
                     music, lyd/lys og scener til en stor del af landets
                     festivals. Oplev branchens bedste service!
                   </p>
-                  <Link
-                    className=" text-lg underline font-normal hover:scale-105 active:scale-95 transition-all duration-300"
-                    href="/"
+                  <button
+                    className=" text-lg underline font-bold hover:scale-105 active:scale-95 transition-all duration-300"
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      setTimeout(() => {
+                        setBookingModalOpen(true);
+                      }, 800);
+                    }}
                   >
-                    Læs mere
-                  </Link>
+                    BOOK
+                  </button>
                 </div>
                 {/* Card 2 */}
-                <div className=" justify-around flex flex-col items-center gap-4 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-sunglow text-sunglow z-50 p-8">
+                <div className=" justify-around flex flex-col items-center gap-12 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-sunglow text-sunglow z-50 p-8">
                   <h2 className=" text-4xl font-bold">Firma</h2>
-                  <p className=" text-lg font-normal">
+                  <p className=" text-lg font-normal normal-case ">
                     Skal vi sparke gang i festen til jeres næste arrangement? Vi
                     har gennem årene arrangeret en lang række events og
                     firmafester, og har stor erfaring med dette!
                   </p>
-                  <Link
-                    className=" text-lg underline font-normal hover:scale-105 active:scale-95 transition-all duration-300"
-                    href="/"
+                  <button
+                    className=" text-lg underline font-bold hover:scale-105 active:scale-95 transition-all duration-300"
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      setTimeout(() => {
+                        setBookingModalOpen(true);
+                      }, 800);
+                    }}
                   >
-                    Læs mere
-                  </Link>
+                    BOOK
+                  </button>
                 </div>
                 {/* Card 3 */}
-                <div className=" justify-around flex flex-col items-center gap-4 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-mauve text-mauve z-50 p-8">
+                <div className=" justify-around flex flex-col items-center gap-12 aspect-[5/7] h-[28rem] border-4 bg-space-cadet border-mauve text-mauve z-50 p-8">
                   <h2 className=" text-4xl font-bold">Privat</h2>
-                  <p className=" text-lg font-normal">
-                    Booking branchen kan være en jungle fyldt af
-                    valgmuligheder.Vi står til rådighed for din skyld og vi
-                    sørger for en service som opfylder dine behov!
+                  <p className=" text-lg font-normal normal-case">
+                    Booking branchen kan være en jungle fyldt af valgmuligheder.
+                    Vi står til rådighed for din skyld og vi sørger for en
+                    service som opfylder dine behov!
                   </p>
-                  <Link
-                    className=" text-lg underline font-normal hover:scale-105 active:scale-95 transition-all duration-300"
-                    href="/"
+                  <button
+                    className=" text-lg underline font-bold hover:scale-105 active:scale-95 transition-all duration-300"
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      });
+                      setTimeout(() => {
+                        setBookingModalOpen(true);
+                      }, 800);
+                    }}
                   >
-                    Læs mere
-                  </Link>
+                    BOOK
+                  </button>
                 </div>
               </div>
             </div>

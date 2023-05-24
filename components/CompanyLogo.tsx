@@ -14,6 +14,7 @@ const CompanyLogo: React.FC<CompanyLogoProps> = ({ url }) => {
         width={200}
         height={200}
         src={url}
+        draggable={false}
       />
     </div>
   );

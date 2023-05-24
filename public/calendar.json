@@ -1,0 +1,46 @@
+{
+  "juni": [
+    {
+      "date": "10",
+      "artist": "Back to Back",
+      "venue": "Horsens"
+    },
+    {
+      "date": "11",
+      "artist": "Birthe Kjær",
+      "venue": "Nibe Festival"
+    },
+    {
+      "date": "14",
+      "artist": "Michael Falch",
+      "venue": "Aarhus"
+    },
+    {
+      "date": "15",
+      "artist": "Outlandish",
+      "venue": "København"
+    },
+    {
+      "date": "16",
+      "artist": "Outlandish",
+      "venue": "Aarhus"
+    },
+    {
+      "date": "22",
+      "artist": "DJ Aligator",
+      "venue": "Odense"
+    },
+    {
+      "date": "30",
+      "artist": "Michael Falch",
+      "venue": "Middelfart"
+    }
+  ],
+  "juli": [
+    {
+      "date": "",
+      "artist": "TBA",
+      "venue": "TBA"
+    }
+  ]
+}

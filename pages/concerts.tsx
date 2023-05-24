@@ -4,53 +4,30 @@ import Link from "next/link";
 import Head from "next/head";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
-import artistsList from "../public/artists.json";
 import { Montserrat } from "next/font/google";
-import ArtistCardSmall from "@/components/ArtistCardSmall";
 import Footer from "@/components/Footer";
+import dates from "../public/calendar.json";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 const concerts = () => {
-  const data = artistsList;
   const [menuOpen, setMenuOpen] = useState(false);
   const { ref, inView, entry } = useInView(undefined);
   const [showNav, setShowNav] = useState(false);
   const [language, setLanguage] = useState("da");
-  const [bookingModalOpen, setBookingModalOpen] = useState(false);
-  const [filter, setFilter] = useState("");
-  const [currentLetter, setCurrentLetter] = useState("");
-  const alfabet = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-    "æ",
-    "ø",
-    "å",
-  ];
+  const [activeMonth, setActiveMonth] = useState("Juni");
+  const [calendar, setCalendar] = useState(dates.juni);
+  const [month, setMonth] = useState("6");
+
+  useEffect(() => {
+    if (calendar === dates.juni) {
+      setMonth(".6");
+    } else if (calendar === dates.juli) {
+      setMonth("");
+    } else if (calendar.length >= 1) {
+      setMonth("");
+    }
+  }, [calendar]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,19 +68,28 @@ const concerts = () => {
       <Head>
         <title>KAIKA MUSIC | Koncerter</title>
         <link rel="icon" href="/kaika_logo.png" />
+        <meta name="description" content="Landsdækkende booking bureau" />
       </Head>
       <main className={montserrat.className}>
         {/* Lines */}
-        <div className=" line absolute top-0 left-0 w-screen h-0 flex  gap-36  ">
-          <div className="  transition-all duration-1000 line left-[15%] fixed h-0 w-[8px] bg-rose delay-[300ms]  "></div>
+        <div className=" line absolute top-0 left-0 w-screen h-0 flex  gap-36 z-0 ">
+          <div className="  transition-all duration-1000 line left-[15%] fixed h-0 w-[8px] bg-mint-green delay-[300ms]  "></div>
 
-          <div className="  transition-all duration-[3000ms] line left-[20%] fixed h-0 w-[8px] bg-rose delay-[600ms] "></div>
+          <div className="  transition-all duration-[3000ms] line left-[20%] fixed h-0 w-[8px] bg-mint-green delay-[600ms] "></div>
 
           <div className="  transition-all duration-[3000ms] line left-[83%] fixed h-0 w-[6px] bg-mauve delay-[150ms] "></div>
 
           <div className="  transition-all duration-[3000ms] line left-[84.5%] fixed h-0 w-[6px] bg-sunglow delay-[1000ms] "></div>
 
           <div className="  transition-all duration-[3000ms] line left-[86%] fixed h-0 w-[6px] bg-mint-green delay-[300ms] "></div>
+        </div>
+        <div className=" left-0   w-full z-[9999] ">
+          <Image
+            className=" translate-y-1"
+            src="/overlayxl.png"
+            fill
+            alt="Overlay"
+          />
         </div>
         <section className={`h-screen w-screen relative flex flex-col p-8`}>
           <div
@@ -218,16 +204,17 @@ const concerts = () => {
               <Link href="/">
                 <Image
                   className=" translate-x-[-50%] absolute left-1/2 z-10"
-                  src="/logo_yellow.png"
+                  src="/koncertlogo.png"
                   alt="kaika logo"
                   width={130}
                   height={130}
+                  draggable={false}
                 />
               </Link>
 
               {/* CTA button */}
               <Link href="/" className=" ">
-                <h2 className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-sunglow hover:bg-sunglow hover:text-space-cadet transition-all duration-300">
+                <h2 className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-mint-green hover:bg-mint-green hover:text-space-cadet transition-all duration-300">
                   Kontakt
                 </h2>
               </Link>
@@ -236,7 +223,7 @@ const concerts = () => {
             {/* Artist text */}
             <div className=" flex flex-col justify-center items-center z-10 mx-auto translate-x-[-50%] absolute left-1/2 top-[40%]">
               <Image
-                src="/landing_text.png"
+                src="/koncerterimg.png"
                 alt="artist text"
                 width={800}
                 height={800}
@@ -263,6 +250,95 @@ const concerts = () => {
                 clipRule="evenodd"
               />
             </svg>
+          </div>
+        </section>
+        {/* Calendar section */}
+        <section className="w-screen z-[999] h-auto bg-space-cadet backdrop-blur flex flex-col py-20 px-12 items-center ">
+          {/* Select Month */}
+          <div className="w-[50rem] h-14 bg-space-cadet border-2 border-mint-green flex mb-20">
+            <button
+              onClick={() => {
+                setCalendar(dates.juni);
+                setActiveMonth("Juni");
+              }}
+              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-mint-green ${
+                activeMonth === "Juni"
+                  ? "bg-mint-green text-space-cadet font-bold"
+                  : "text-sunglow"
+              } flex items-center justify-center`}
+            >
+              Juni
+            </button>
+            <button
+              onClick={() => {
+                setCalendar(dates.juli);
+                setActiveMonth("Juli");
+              }}
+              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
+                activeMonth === "Juli"
+                  ? "bg-mint-green text-space-cadet font-bold"
+                  : "text-sunglow"
+              } flex items-center justify-center`}
+            >
+              Juli
+            </button>
+            <button
+              onClick={() => setActiveMonth("August")}
+              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
+                activeMonth === "August"
+                  ? "bg-mint-green text-space-cadet font-bold"
+                  : "text-sunglow"
+              } flex items-center justify-center`}
+            >
+              August
+            </button>
+            <button
+              onClick={() => setActiveMonth("September")}
+              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
+                activeMonth === "September"
+                  ? "bg-mint-green text-space-cadet font-bold"
+                  : "text-sunglow"
+              } flex items-center justify-center`}
+            >
+              September
+            </button>
+            <button
+              onClick={() => {
+                setActiveMonth("Oktober");
+              }}
+              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
+                activeMonth === "Oktober"
+                  ? "bg-mint-green text-space-cadet font-bold"
+                  : "text-sunglow"
+              } flex items-center justify-center`}
+            >
+              Oktober
+            </button>
+          </div>
+          {/* Calendar */}
+          <div className="w-screen relative">
+            {/* Vertical line */}
+            <div className="h-[120%] absolute w-1 left-[22rem] top-[-2rem] bg-mint-green "></div>
+
+            {calendar.map((e) => (
+              <div className=" text-left uppercase w-2/3 mx-auto border-b-[3px] border-mint-green flex justify-between px-2 py-4 font-light">
+                {/* left side */}
+                <div className=" flex text-sunglow text-2xl w-80 justify-between">
+                  <h2 className="w-1/2">{`${e.date}${month}`}</h2>
+                  <h2 className="w-1/2 whitespace-nowrap">{e.artist}</h2>
+                </div>
+                {/* Middle */}
+                <div className=" flex text-sunglow text-2xl gap-x-8 justify-between">
+                  <h2 className="w-1/2 text-mauve">{e.venue}</h2>
+                  <Link
+                    className=" whitespace-nowrap font-bold text-mint-green ml-12 hover:scale-105 transition-all duration-300"
+                    href={"/"}
+                  >
+                    Køb billet
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       </main>
