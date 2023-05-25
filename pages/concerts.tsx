@@ -93,7 +93,7 @@ const concerts = () => {
         </div>
         <section className={`h-screen w-screen relative flex flex-col p-8`}>
           <div
-            className={` duration-1000 delay-[1500ms] transition-all absolute top-0 left-0 w-screen h-screen
+            className={` concert-bg duration-1000 delay-[1500ms] transition-all absolute top-0 left-0 w-screen h-screen
            `}
           >
             {/* Logo and Navigation */}
@@ -228,6 +228,7 @@ const concerts = () => {
                 width={800}
                 height={800}
                 draggable={false}
+                priority
               />
             </div>
 
@@ -253,7 +254,7 @@ const concerts = () => {
           </div>
         </section>
         {/* Calendar section */}
-        <section className="w-screen z-[999] h-auto bg-space-cadet backdrop-blur flex flex-col py-20 px-12 items-center ">
+        <section className="w-full z-[999] h-auto bg-space-cadet backdrop-blur flex flex-col py-20 px-12 items-center ">
           {/* Select Month */}
           <div className="w-[50rem] h-14 bg-space-cadet border-2 border-mint-green flex mb-20">
             <button
@@ -316,12 +317,12 @@ const concerts = () => {
             </button>
           </div>
           {/* Calendar */}
-          <div className="w-screen relative">
+          <div className="w-full relative">
             {/* Vertical line */}
-            <div className="h-[120%] absolute w-1 left-[22rem] top-[-2rem] bg-mint-green "></div>
 
             {calendar.map((e) => (
-              <div className=" text-left uppercase w-2/3 mx-auto border-b-[3px] border-mint-green flex justify-between px-2 py-4 font-light">
+              <div className=" text-left relative uppercase w-[70rem] mx-auto border-b-[3px] border-mint-green flex justify-between px-2 py-4 font-light">
+                <div className="h-[200%] absolute w-1 left-[10%] top-[-2rem] bg-mint-green "></div>
                 {/* left side */}
                 <div className=" flex text-sunglow text-2xl w-80 justify-between">
                   <h2 className="w-1/2">{`${e.date}${month}`}</h2>

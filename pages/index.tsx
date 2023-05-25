@@ -293,7 +293,7 @@ export default function Home() {
         <section className="w-screen h-auto flex flex-col justify-center items-center px-8 pt-32">
           {/* Lines */}
           <div className=" line absolute z-[0] top-0 left-0 w-screen h-0 flex  gap-36  ">
-            <div className="  transition-all duration-1000 line left-[20%] fixed h-0 w-[8px] bg-mint-green delay-[300ms]  "></div>
+            <div className="  transition-all duration-1000 line left-[25%] fixed h-0 w-[8px] bg-mint-green delay-[300ms]  "></div>
 
             <div className="  transition-all duration-[3000ms] line left-[30%] fixed h-0 w-[8px] bg-sunglow delay-[600ms] "></div>
 
@@ -311,7 +311,7 @@ export default function Home() {
             >
               <h2>Mød Artisterne</h2>
               {/* Artist wrapper */}
-              <div className=" [&>*:nth-child(2)]:translate-y-20  [&>*:nth-child(5)]:translate-y-20 gap-x-16 gap-y-32 flex flex-wrap w-full h-full items-center justify-center py-20">
+              <div className=" [&>*:nth-child(2)]:translate-y-20  [&>*:nth-child(5)]:translate-y-20 gap-x-16 gap-y-32 flex flex-wrap w-full max-w-6xl h-full items-center justify-center py-20">
                 {/* Artist 1 */}
                 <ArtistCard
                   onClick={() => setArtistModalOpen("Faustix")}

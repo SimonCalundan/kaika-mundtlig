@@ -24,3 +24,17 @@ body {
     opacity: 1;
   }
 }
+
+.artist-bg {
+  background-image: url("/bg_images/artists_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.concert-bg {
+  background-image: url("/bg_images/concerts_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

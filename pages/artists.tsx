@@ -93,7 +93,7 @@ const artists = () => {
         <link rel="icon" href="/kaika_logo.png" />
         <meta name="description" content="Landsdækkende booking bureau" />
       </Head>
-      <main ref={ref} className={montserrat.className}>
+      <main className={montserrat.className}>
         {/* Lines */}
         <div className=" line absolute top-0 left-0 w-screen h-0 flex  gap-36  ">
           <div className="  transition-all duration-1000 line left-[15%] fixed h-0 w-[8px] bg-rose delay-[300ms]  "></div>
@@ -106,15 +106,15 @@ const artists = () => {
 
           <div className="  transition-all duration-[3000ms] line left-[86%] fixed h-0 w-[6px] bg-mint-green delay-[300ms] "></div>
         </div>
-        <section className={`h-screen w-screen relative flex flex-col p-8`}>
+        <section className={`h-screen w-screen relative  flex flex-col p-8`}>
           <div
-            className={` duration-1000 delay-[1500ms] transition-all absolute top-0 left-0 w-screen h-screen
+            className={` artist-bg duration-1000 delay-[1500ms] transition-all absolute top-0 left-0 w-screen h-screen
            `}
           >
             {/* Logo and Navigation */}
 
             <nav
-              className={` transition-all duration-500 flex justify-between h-auto top-0  left-0 right-0 fixed p-8  ${
+              className={` z-[9999] transition-all duration-500 flex justify-between h-auto top-0  left-0 right-0 fixed p-8  ${
                 showNav
                   ? "bg-space-cadet bg-opacity-40 backdrop-blur z-[99999]"
                   : ""
@@ -127,7 +127,7 @@ const artists = () => {
                   menuOpen ? "left-0" : "left-[-50%]"
                 } w-80 h-full bg-true-black bg-opacity-95 backdrop-blur flex flex-col`}
               >
-                <div className=" flex items-center justify-between">
+                <div className=" flex items-center justify-between z-[99999]">
                   <button onClick={() => setMenuOpen(!menuOpen)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -215,7 +215,7 @@ const artists = () => {
               </button>
 
               {/* Logo */}
-              <Link href="/">
+              <Link className=" z-[9999]" href="/">
                 <Image
                   className=" translate-x-[-50%] absolute left-1/2 z-10"
                   src="/logo_yellow.png"
@@ -241,6 +241,7 @@ const artists = () => {
                 width={800}
                 height={800}
                 draggable={false}
+                priority
               />
             </div>
 
@@ -268,9 +269,12 @@ const artists = () => {
         {/* Artist section */}
         <section className=" w-screen flex flex-col pt-40">
           {/* Filter and letters */}
-          <div className=" ml-32 h-auto w-full flex max-w-5xl justify-start gap-x-4 z-[999]">
+          <div className=" ml-[15%] h-auto w-full flex max-w-5xl justify-start gap-x-4 z-[999]">
             {/* Search input */}
-            <div className="flex items-center text-white placeholder:text-sunglow border-2 border-rose rounded-md bg-space-cadet px-4 py-2 active:border-rose outline-none focus:border-rose">
+            <div
+              ref={ref}
+              className="flex items-center text-white placeholder:text-sunglow border-2 border-rose rounded-md bg-space-cadet px-4 py-2 active:border-rose outline-none focus:border-rose"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
