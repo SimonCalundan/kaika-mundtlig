@@ -217,7 +217,7 @@ export default function Home() {
             </Link>
 
             {/* CTA button */}
-            <Link href="/" className=" ">
+            <Link href="/contact" className=" ">
               <h2 className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-mint-green hover:bg-mint-green hover:text-space-cadet transition-all duration-300">
                 Kontakt
               </h2>

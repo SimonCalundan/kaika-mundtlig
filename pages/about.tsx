@@ -203,7 +203,7 @@ const about = () => {
               </Link>
 
               {/* CTA button */}
-              <Link href="/" className=" ">
+              <Link href="/contact" className=" ">
                 <h2 className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-mint-green hover:bg-mint-green hover:text-space-cadet transition-all duration-300">
                   Kontakt
                 </h2>
@@ -350,9 +350,12 @@ const about = () => {
           </div>
         </div>
         <div className=" w-screen flex justify-center">
-          <button className=" text-white font-semibold uppercase text-xl px-6 py-2 border-2 border-mauve mt-20 hover:bg-mauve hover:text-space-cadet transition-all ">
+          <Link
+            href="/contact"
+            className=" text-white font-semibold uppercase text-xl px-6 py-2 border-2 border-mauve mt-20 hover:bg-mauve hover:text-space-cadet transition-all "
+          >
             Kontakt
-          </button>
+          </Link>
         </div>
 
         <Footer />
