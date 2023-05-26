@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { BsFacebook, BsInstagram, BsSpotify } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="w-screen bg-space-cadet h-[25rem] z-[999]">
+    <footer className="w-screen bg-space-cadet h-[25rem] z-[999] ">
       <Image
         className=" w-screen bg-space-cadet"
         alt="Footer overlay"
@@ -25,7 +26,7 @@ const Footer = () => {
           />
         </div>
         {/* Row 2 Links */}
-        <div className="flex justify-center items-start pb-12 px-20 gap-64 text-white">
+        <div className="flex justify-center items-start pb-12 px-20 gap-64 text-white z-[999]">
           {/* Link box */}
           <div className=" flex flex-col">
             <h2 className=" font-bold text-xl uppercase">Kontakt</h2>
@@ -56,6 +57,17 @@ const Footer = () => {
             <div className=" flex flex-col text-lg">
               <Link href="/concerts">Kalender</Link>
               <Link href="/artists">Artister</Link>
+              <div className=" flex gap-1 mt-4">
+                <Link href="/">
+                  <BsFacebook className="inline-block mr-2 text-3xl hover:text-mint-green transition-all" />
+                </Link>
+                <Link href="/">
+                  <BsSpotify className="inline-block mr-2 text-3xl hover:text-mint-green transition-all" />
+                </Link>
+                <Link href="/">
+                  <BsInstagram className="inline-block mr-2 text-3xl hover:text-mint-green transition-all" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

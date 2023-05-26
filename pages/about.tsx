@@ -7,10 +7,11 @@ import { useState, useEffect } from "react";
 import { Montserrat } from "next/font/google";
 import Footer from "@/components/Footer";
 import dates from "../public/calendar.json";
+import Employee from "@/components/Employee";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-const concerts = () => {
+const about = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { ref, inView, entry } = useInView(undefined);
   const [showNav, setShowNav] = useState(false);
@@ -66,24 +67,23 @@ const concerts = () => {
   return (
     <>
       <Head>
-        <title>KAIKA MUSIC | Koncerter</title>
+        <title>KAIKA MUSIC | Om os</title>
         <link rel="icon" href="/kaika_logo.png" />
         <meta name="description" content="Landsdækkende booking bureau" />
       </Head>
       <main className={montserrat.className}>
         {/* Lines */}
+        <div className=" line absolute top-0 left-0 w-screen h-0 flex  gap-36  ">
+          <div className="  transition-all duration-[3000ms] line left-[85%] fixed h-0 w-[6px] bg-mauve delay-[150ms] "></div>
 
-        <div className=" left-0   w-full z-[9999] ">
-          <Image
-            className=" translate-y-1"
-            src="/overlayxl.png"
-            fill
-            alt="Overlay"
-          />
+          <div className="  transition-all duration-[3000ms] line left-[86.5%] fixed h-0 w-[6px] bg-sunglow delay-[1000ms] "></div>
+
+          <div className="  transition-all duration-[3000ms] line left-[88%] fixed h-0 w-[6px] bg-mint-green delay-[300ms] "></div>
         </div>
+
         <section className={`h-screen w-screen relative flex flex-col p-8`}>
           <div
-            className={` concert-bg duration-1000 delay-[1500ms] transition-all absolute top-0 left-0 w-screen h-screen
+            className={` duration-1000 delay-[1500ms] transition-all absolute top-0 left-0 w-screen h-screen
            `}
           >
             {/* Logo and Navigation */}
@@ -156,7 +156,7 @@ const concerts = () => {
                   </Link>
                   <Link
                     className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
-                    href="/about"
+                    href="/"
                   >
                     Om os
                   </Link>
@@ -194,7 +194,7 @@ const concerts = () => {
               <Link href="/">
                 <Image
                   className=" translate-x-[-50%] absolute left-1/2 z-10"
-                  src="/koncertlogo.png"
+                  src="/logo_about.png"
                   alt="kaika logo"
                   width={130}
                   height={130}
@@ -210,16 +210,33 @@ const concerts = () => {
               </Link>
             </nav>
 
-            {/* Artist text */}
-            <div className=" flex flex-col justify-center items-center z-10 mx-auto translate-x-[-50%] absolute left-1/2 top-[40%]">
-              <Image
-                src="/koncerterimg.png"
-                alt="artist text"
-                width={800}
-                height={800}
-                draggable={false}
-                priority
-              />
+            {/* Om os text */}
+            <div className=" flex flex-col justify-center items-center z-10 mx-auto w-screen h-screen">
+              {/* Text wrapper */}
+              <div className=" text-white flex flex-col justify-center items-start gap-y-4 max-w-6xl mx-auto">
+                <h2 className=" text-4xl uppercase font-bold mb-10">Om os</h2>
+                <p className=" ml-10 text-xl max-w-4xl leading-8">
+                  Kaika Music er et af landets førende bookingbureauer, og vores
+                  varemærke er at levere branchens bedste service.
+                  <br />
+                  <br />
+                  Bag Kaika Music står Kai Koitzsch, som er kendt af mange i
+                  musikbranchen og har været en del af denne i mere end 35 år.
+                  Kaika Music havde sin opstart i 2007 i et mindre kontor på
+                  Marselis Boulevard i Århus. Masser af succes gjorde, at Kaika
+                  i 2010 flyttede til Egsagervej i Åbyhøj nær Århus i helt
+                  nyistandsatte og lyse kontorlokaler.
+                  <br />
+                  <br />I dag består Kaika Music af et dynamisk team på i alt
+                  fem medarbejdere – alle med masser af energi. Sammen bestræber
+                  vi os på at levere branchens bedste service til dig og dit
+                  næste arrangement.
+                  <br />
+                  <br />
+                  Holdet bag Kaika Music glæder sig meget til et kommende
+                  samarbejde. <br /> <br /> Velkommen til KAIKA MUSIC.
+                </p>
+              </div>
             </div>
 
             <svg
@@ -243,139 +260,105 @@ const concerts = () => {
             </svg>
           </div>
         </section>
-        {/* Calendar section */}
-        <section className="w-full z-[999] h-auto bg-space-cadet backdrop-blur flex flex-col py-20 px-12 items-center ">
-          {/* Select Month */}
-          <div className="w-[50rem] h-14 bg-space-cadet border-2 border-mint-green flex mb-20">
-            <button
-              onClick={() => {
-                setCalendar(dates.juni);
-                setActiveMonth("Juni");
-              }}
-              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-mint-green ${
-                activeMonth === "Juni"
-                  ? "bg-mint-green text-space-cadet font-bold"
-                  : "text-sunglow"
-              } flex items-center justify-center`}
-            >
-              Juni
-            </button>
-            <button
-              onClick={() => {
-                setCalendar(dates.juli);
-                setActiveMonth("Juli");
-              }}
-              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
-                activeMonth === "Juli"
-                  ? "bg-mint-green text-space-cadet font-bold"
-                  : "text-sunglow"
-              } flex items-center justify-center`}
-            >
-              Juli
-            </button>
-            <button
-              onClick={() => setActiveMonth("August")}
-              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
-                activeMonth === "August"
-                  ? "bg-mint-green text-space-cadet font-bold"
-                  : "text-sunglow"
-              } flex items-center justify-center`}
-            >
-              August
-            </button>
-            <button
-              onClick={() => setActiveMonth("September")}
-              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
-                activeMonth === "September"
-                  ? "bg-mint-green text-space-cadet font-bold"
-                  : "text-sunglow"
-              } flex items-center justify-center`}
-            >
-              September
-            </button>
-            <button
-              onClick={() => {
-                setActiveMonth("Oktober");
-              }}
-              className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
-                activeMonth === "Oktober"
-                  ? "bg-mint-green text-space-cadet font-bold"
-                  : "text-sunglow"
-              } flex items-center justify-center`}
-            >
-              Oktober
-            </button>
-          </div>
-          {/* Calendar */}
-          <div className="w-full relative">
-            {/* Vertical line */}
-
-            {calendar.map((e) => (
-              <div className=" text-left relative uppercase w-[70rem] mx-auto border-b-[3px] border-mint-green flex justify-between px-2 py-4 font-light">
-                <div className="h-[200%] absolute w-1 left-[10%] top-[-2rem] bg-mint-green "></div>
-                {/* left side */}
-                <div className=" flex text-sunglow text-2xl w-80 justify-between">
-                  <h2 className="w-1/2">{`${e.date}${month}`}</h2>
-                  <h2 className="w-1/2 whitespace-nowrap">{e.artist}</h2>
-                </div>
-                {/* Middle */}
-                <div className=" flex text-sunglow text-2xl gap-x-8 justify-between">
-                  <h2 className="w-1/2 text-mauve">{e.venue}</h2>
-                  <Link
-                    className=" whitespace-nowrap font-bold text-mint-green ml-12 hover:scale-105 transition-all duration-300"
-                    href={"/"}
-                  >
-                    Køb billet
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-        {/* News */}
-        <section className=" mt-20 w-full relative  bg-space-cadet flex flex-col h-[30rem] items-center overflow-hidden ">
-          {/* Text wrapper  */}
-          <div className=" absolute top-0 left-0 z-[999] px-14 py-14 flex flex-col gap-8">
-            <h2 className=" text-3xl uppercase font-bold text-white">
-              Introducing: Faustix
+        {/* Værdier text */}
+        <div className=" flex flex-col justify-center items-center z-10 mx-auto w-screen h-[50vh] mb-20">
+          {/* Text wrapper */}
+          <div className=" text-white flex flex-col justify-center items-start gap-y-4 max-w-6xl mx-auto">
+            <h2 className=" text-4xl uppercase font-bold mb-10">
+              Kaikas værdier
             </h2>
-            <p className=" max-w-lg text-xl text-white mt-12 font-normal">
-              Kaika Music er stolte af at byde velkommen til Faustix! Faustix
-              behøver næppe nogen større introduktion, da han allerede har gjort
-              sig bemærket som en af landets allerbedste DJ´s og producere…
+            <p className=" ml-10 text-xl max-w-4xl leading-8">
+              Kaika Music har fire værdisæt, som alle medarbejdere handler ud
+              fra. Disse værdier er vigtige for vores daglige arbejde og vores
+              relationer med andre. De fire værdier er: at holde aftaler,
+              kommunikation, engagement og initiativ. Vi fokuserer på at
+              overholde aftaler, have en åben og ligefrem kommunikation, vise
+              engagement og tage initiativ til at finde nye muligheder. Disse
+              værdier er afgørende for at skabe gode oplevelser og relationer.
             </p>
+          </div>
+        </div>
+        {/* services text */}
+        <div className=" flex flex-col justify-center items-center z-10 mx-auto w-screen h-[50vh] mb-20">
+          {/* Text wrapper */}
+          <div className=" text-white flex flex-col justify-center items-start gap-y-4 max-w-6xl mx-auto">
+            <h2 className=" text-4xl uppercase font-bold mb-10">
+              Kaikas værdier
+            </h2>
+            <p className=" ml-10 text-xl max-w-4xl leading-8">
+              Kaika Music har fire værdisæt, som alle medarbejdere handler ud
+              fra. Disse værdier er vigtige for vores daglige arbejde og vores
+              relationer med andre. De fire værdier er: at holde aftaler,
+              kommunikation, engagement og initiativ. Vi fokuserer på at
+              overholde aftaler, have en åben og ligefrem kommunikation, vise
+              engagement og tage initiativ til at finde nye muligheder. Disse
+              værdier er afgørende for at skabe gode oplevelser og relationer.
+            </p>
+          </div>
+        </div>
+        {/* services text */}
+        <div className=" flex flex-col justify-center items-start max-w-6xl z-10 mx-auto w-screen h-auto">
+          {/* Text wrapper */}
+          <div className=" text-white flex flex-col justify-center items-start gap-y-4 ml-[6rem] max-w-6xl">
+            <h2 className=" text-4xl uppercase font-bold mb-20">
+              Mød team kaika
+            </h2>
+            <div className=" flex flex-col gap-20">
+              <Employee
+                name="Kai Koitzsch"
+                title="BOOKING OG MANAGEMENT"
+                mail="kk@kaika.dk"
+                phone="+45 70 231 233 / +45 40 16 16 95"
+                image="/employees/kai.png"
+              />
+              <Employee
+                name="CASPER WEINREICH"
+                title="BOOKING"
+                mail="cw@kaika.dk"
+                phone="+45 70 231 233 / +45 40 161 673"
+                image="/employees/casper.png"
+              />
+              <Employee
+                name="LASSE K. H. PEDERSEN"
+                title="PRODUKTIONSMANAGER"
+                mail="lp@kaika.dk"
+                phone="+45 70 231 233"
+                image="/employees/lasse.png"
+              />
+              <Employee
+                name="BETINA L. ANDERSEN"
+                title="ØKONOMI"
+                mail="kk@kaika.dk"
+                phone="+45 70 231 233 "
+                image="/employees/betina.png"
+              />
+              <Employee
+                name="NINNA KORSGAARD"
+                title="PA & KONTRAKTFORHOLD"
+                mail="nk@kaika.dk"
+                phone="+45 70 231 233 "
+                image="/employees/ninna.png"
+              />
+              <Employee
+                name="MARIE K. L. BORDINGGAARD"
+                title="ADMINISTRATIONSELEV"
+                mail="mb@kaika.dk"
+                phone="+45 70 231 233 "
+                image="/employees/marie.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div className=" w-screen flex justify-center">
+          <button className=" text-white font-semibold uppercase text-xl px-6 py-2 border-2 border-mauve mt-20 hover:bg-mauve hover:text-space-cadet transition-all ">
+            Kontakt
+          </button>
+        </div>
 
-            <button className=" flex text-white items-center gap-4 hover:scale-105 transition-all">
-              <p className=" text-xl font-bold uppercase">Book nu</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.28 11.47a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 01-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 011.06-1.06l7.5 7.5z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
-          {/* Image container */}
-          <div className="w-full h-full absolute top-0 left-0">
-            <Image
-              className="object-cover z-0"
-              src="/faustix_stor.png"
-              alt="Faustix"
-              width={2000}
-              height={2000}
-            />
-          </div>
-        </section>
         <Footer />
       </main>
     </>
   );
 };
 
-export default concerts;
+export default about;

@@ -180,13 +180,13 @@ const artists = () => {
                   </Link>
                   <Link
                     className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
-                    href="/"
+                    href="/about"
                   >
                     Om os
                   </Link>
                   <Link
                     className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
-                    href="/"
+                    href="/contact"
                   >
                     Kontakt
                   </Link>

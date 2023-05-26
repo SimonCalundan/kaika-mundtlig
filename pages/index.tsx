@@ -76,14 +76,19 @@ export default function Home() {
       </Head>
       <main className={montserrat.className}>
         {/* Artist modals */}
-        {artistModalOpen === "Faustix" && (
+        {artistModalOpen === "Outlandish" && (
           <ArtistModal
-            pressekit="tom"
-            link="tom"
-            name="Faustix"
-            image="/presse_kit/OUTLANDISH/Outlandish 2023 stor format.jpg"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam"
-            spotify="tomString"
+            pressekit="https://www.dropbox.com/sh/dx2pxn7z3ilq0u6/AADmRq4CSBSkM8tMW_paVeU2a?dl=0"
+            name="Outlandish"
+            instagram="https://www.instagram.com/outlandish/"
+            spotify="https://open.spotify.com/artist/5tqMW5dSAlvh0GvgD3XfDy?si=9r789g3JQja8xXuiUwvCmg"
+            facebook="https://www.facebook.com/outlandsofficial"
+            image="/presse_kit/OUTLANDISH/Outlandish 2023.jpg"
+            description="Outlandish er klar til at fortsætte deres musikalske rejse, som de begyndte for snart 18 år siden, med ny musik samt at drage ud på Tour igen.
+
+            Gruppen består af Waqas & Lenny samt deres fantastiske band som de har spillet med gennem mere end 10 år. Deres koncerter vil være en blanding af de store hits og ny musik, heriblandt Aicha, Guantanamo, Walou, I Only Ask Of God, Callin’ U, Look Into My Eyes, Warrior/Worrier, og ikke mindst det nye hit “Might Not Be Right”. Outlandish har gemmen det sidst år optrådt i diverse setups rundt om i Danmark, til store festivaler i Indien, og på utallige klubber i Beirut, UK, Tyskland, Cuba, Rusland, Rumænien, Kazakstan (mange shows). 
+            
+            Deres første single er planlagt til at udkomme i oktober, og derefter er planen så løbende at udgive ny musik. De er garant for et godt og hit-spækket show, der får folk med og op af stolene. "
             onClick={() => {
               setArtistModalOpen("");
             }}
@@ -166,13 +171,13 @@ export default function Home() {
                 </Link>
                 <Link
                   className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
-                  href="/"
+                  href="/about"
                 >
                   Om os
                 </Link>
                 <Link
                   className=" hover:scale-105 active:scale-95 transition-all hover:text-mauve"
-                  href="/"
+                  href="/contact"
                 >
                   Kontakt
                 </Link>
@@ -314,7 +319,7 @@ export default function Home() {
               <div className=" [&>*:nth-child(2)]:translate-y-20  [&>*:nth-child(5)]:translate-y-20 gap-x-16 gap-y-32 flex flex-wrap w-full max-w-6xl h-full items-center justify-center py-20">
                 {/* Artist 1 */}
                 <ArtistCard
-                  onClick={() => setArtistModalOpen("Faustix")}
+                  onClick={() => setArtistModalOpen("Outlandish")}
                   name="Outlandish"
                   image="/presse_kit/OUTLANDISH/Outlandish 2023.jpg"
                 />
