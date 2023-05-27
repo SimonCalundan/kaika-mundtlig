@@ -23,7 +23,13 @@ const concerts = () => {
     if (calendar === dates.juni) {
       setMonth(".6");
     } else if (calendar === dates.juli) {
-      setMonth("");
+      setMonth(".7");
+    } else if (calendar === dates.august) {
+      setMonth(".8");
+    } else if (calendar === dates.september) {
+      setMonth(".9");
+    } else if (calendar === dates.oktober) {
+      setMonth(".10");
     } else if (calendar.length >= 1) {
       setMonth("");
     }
@@ -274,7 +280,10 @@ const concerts = () => {
               Juli
             </button>
             <button
-              onClick={() => setActiveMonth("August")}
+              onClick={() => {
+                setActiveMonth("August");
+                setCalendar(dates.august);
+              }}
               className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
                 activeMonth === "August"
                   ? "bg-mint-green text-space-cadet font-bold"
@@ -284,7 +293,10 @@ const concerts = () => {
               August
             </button>
             <button
-              onClick={() => setActiveMonth("September")}
+              onClick={() => {
+                setActiveMonth("September");
+                setCalendar(dates.september);
+              }}
               className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
                 activeMonth === "September"
                   ? "bg-mint-green text-space-cadet font-bold"
@@ -296,6 +308,7 @@ const concerts = () => {
             <button
               onClick={() => {
                 setActiveMonth("Oktober");
+                setCalendar(dates.oktober);
               }}
               className={` w-1/5 transition-all duration-300 h-full uppercase text-lg border-l-2 border-mint-green ${
                 activeMonth === "Oktober"
@@ -320,7 +333,9 @@ const concerts = () => {
                 </div>
                 {/* Middle */}
                 <div className=" flex text-sunglow text-2xl gap-x-8 justify-between">
-                  <h2 className="w-1/2 text-mauve">{e.venue}</h2>
+                  <h2 className="w-1/2 text-mauve whitespace-nowrap">
+                    {e.venue}
+                  </h2>
                   <Link
                     className=" whitespace-nowrap font-bold text-mint-green ml-12 hover:scale-105 transition-all duration-300"
                     href={"/"}
