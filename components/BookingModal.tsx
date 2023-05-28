@@ -1,6 +1,7 @@
 import React from "react";
 import artists from "../public/artists.json";
 import { useState, useEffect } from "react";
+import { TbLoaderQuarter, TbLoader } from "react-icons/tb";
 
 interface BookingModalProps {
   onClick: () => void;
@@ -10,6 +11,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ onClick }) => {
   const data = artists;
   const [formData, setFormData] = useState({});
   const [formLength, setFormLength] = useState(0);
+  const [status, setStatus] = useState("form");
 
   /* Dynamic progressbar based on number of elements in the formData object */
   useEffect(() => {
@@ -38,93 +40,121 @@ const BookingModal: React.FC<BookingModalProps> = ({ onClick }) => {
         <h2 className=" text-3xl font-bold text-sunglow uppercase">
           Bookingformular
         </h2>
-        {/* Progress bar */}
-        <div className=" relative w-1/2 mx-auto h-3 bg-white">
-          <div
-            style={{ width: `${formLength}%` }}
-            className={` h-full absolute top-0 left-0 bg-mauve transition-all duration-500 delay-500 shadow-lg`}
-          ></div>
-        </div>
-        {/* Form */}
-        <form className=" w-full h-full flex justify-between mt-8 gap-8 text-space-cadet">
-          {/* left */}
-          <div className="  w-1/2 h-4/5 flex flex-col justify-around text-sm">
-            <input
-              required
-              placeholder="Navn"
-              className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
-              type="text"
-              onChange={(e) => {
-                setFormData({ ...formData, name: e.target.value });
+
+        {status === "form" && (
+          <>
+            {/* Progress bar */}
+            <div className=" relative w-1/2 mx-auto h-3 bg-white">
+              <div
+                style={{ width: `${formLength}%` }}
+                className={` h-full absolute top-0 left-0 bg-mauve transition-all duration-500 delay-500 shadow-lg`}
+              ></div>
+            </div>
+            <form className=" w-full h-full flex justify-between mt-8 gap-8 text-space-cadet">
+              {/* left */}
+              <div className="  w-1/2 h-4/5 flex flex-col justify-around text-sm">
+                <input
+                  required
+                  placeholder="Navn"
+                  className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
+                  type="text"
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                  }}
+                />
+                <input
+                  required
+                  placeholder="Telefonnummer"
+                  className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
+                  type="text"
+                  onChange={(e) => {
+                    setFormData({ ...formData, phone: e.target.value });
+                  }}
+                />
+                <input
+                  required
+                  placeholder="E-mail"
+                  className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
+                  type="mail"
+                  onChange={(e) => {
+                    setFormData({ ...formData, mail: e.target.value });
+                  }}
+                />
+              </div>
+              {/* right */}
+              <div className="  w-1/2 h-4/5 flex flex-col justify-around placeholder-space-cadet text-sm">
+                <input
+                  required
+                  onFocus={(e) => (e.target.type = "date")}
+                  placeholder="Dato for arrangement"
+                  className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
+                  type="text"
+                  onChange={(e) => {
+                    setFormData({ ...formData, date: e.target.value });
+                  }}
+                />
+                <select
+                  required
+                  defaultValue={"Vælg kunstner"}
+                  className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
+                  onChange={(e) => {
+                    setFormData({ ...formData, artist: e.target.value });
+                  }}
+                >
+                  <option disabled>Vælg kunstner</option>
+                  {data.map((artist) => (
+                    <option key={artist.id} value={artist.name}>
+                      {artist.name}
+                    </option>
+                  ))}
+                </select>
+                <input
+                  placeholder="Kommentar"
+                  className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
+                  type="text"
+                  onChange={(e) => {
+                    setFormData({ ...formData, comment: e.target.value });
+                  }}
+                />
+              </div>
+            </form>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                console.log(formData);
+                setStatus("loading");
+                setTimeout(() => {
+                  setStatus("success");
+                }, 1000);
+                setTimeout(() => {
+                  onClick();
+                }, 2000);
               }}
-            />
-            <input
-              required
-              placeholder="Telefonnummer"
-              className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
-              type="text"
-              onChange={(e) => {
-                setFormData({ ...formData, phone: e.target.value });
-              }}
-            />
-            <input
-              required
-              placeholder="E-mail"
-              className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
-              type="mail"
-              onChange={(e) => {
-                setFormData({ ...formData, mail: e.target.value });
-              }}
-            />
-          </div>
-          {/* right */}
-          <div className="  w-1/2 h-4/5 flex flex-col justify-around placeholder-space-cadet text-sm">
-            <input
-              required
-              onFocus={(e) => (e.target.type = "date")}
-              placeholder="Dato for arrangement"
-              className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
-              type="text"
-              onChange={(e) => {
-                setFormData({ ...formData, date: e.target.value });
-              }}
-            />
-            <select
-              required
-              defaultValue={"Vælg kunstner"}
-              className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
-              onChange={(e) => {
-                setFormData({ ...formData, artist: e.target.value });
-              }}
+              className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-mauve hover:bg-mauve hover:text-space-cadet transition-all duration-300"
+              type="submit"
             >
-              <option disabled>Vælg kunstner</option>
-              {data.map((artist) => (
-                <option key={artist.id} value={artist.name}>
-                  {artist.name}
-                </option>
-              ))}
-            </select>
-            <input
-              placeholder="Kommentar"
-              className="w-full h-1/5 bg-white placeholder-space-cadet p-2 uppercase font-bold text-sm"
-              type="text"
-              onChange={(e) => {
-                setFormData({ ...formData, comment: e.target.value });
-              }}
-            />
+              Send
+            </button>
+          </>
+        )}
+        {status === "loading" && (
+          <div className=" w-full h-full flex justify-center items-center relative">
+            <h2
+              className="
+            text-2xl font-bold text-sunglow uppercase animate-pulse"
+            >
+              indlæser...
+            </h2>
           </div>
-        </form>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            console.log(formData);
-            onClick();
-          }}
-          className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-mauve hover:bg-mauve hover:text-space-cadet transition-all duration-300"
-          type="submit"
-        >
-          Send
-        </button>
+        )}
+        {status === "success" && (
+          <div className=" w-full h-full flex justify-center items-center relative">
+            <div className=" flex flex-col gap-4 text-white font-semibold text-2xl text-center">
+              <h2>Tak for din forespørgsel!</h2>
+              <h2>Du modtager et svar indenfor 24 timer.</h2>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -78,6 +78,11 @@ export default function Home() {
         {/* Artist modals */}
         {artistModalOpen === "Outlandish" && (
           <ArtistModal
+            book={() => {
+              setArtistModalOpen("");
+              scrollTo(0, 0);
+              setBookingModalOpen(true);
+            }}
             pressekit="https://www.dropbox.com/sh/dx2pxn7z3ilq0u6/AADmRq4CSBSkM8tMW_paVeU2a?dl=0"
             name="Outlandish"
             instagram="https://www.instagram.com/outlandish/"
@@ -89,6 +94,130 @@ export default function Home() {
             Gruppen består af Waqas & Lenny samt deres fantastiske band som de har spillet med gennem mere end 10 år. Deres koncerter vil være en blanding af de store hits og ny musik, heriblandt Aicha, Guantanamo, Walou, I Only Ask Of God, Callin’ U, Look Into My Eyes, Warrior/Worrier, og ikke mindst det nye hit “Might Not Be Right”. Outlandish har gemmen det sidst år optrådt i diverse setups rundt om i Danmark, til store festivaler i Indien, og på utallige klubber i Beirut, UK, Tyskland, Cuba, Rusland, Rumænien, Kazakstan (mange shows). 
             
             Deres første single er planlagt til at udkomme i oktober, og derefter er planen så løbende at udgive ny musik. De er garant for et godt og hit-spækket show, der får folk med og op af stolene. "
+            onClick={() => {
+              setArtistModalOpen("");
+            }}
+          />
+        )}
+        {artistModalOpen === "michelsen & bramsen" && (
+          <ArtistModal
+            book={() => {
+              setArtistModalOpen("");
+              scrollTo(0, 0);
+              setBookingModalOpen(true);
+            }}
+            onClick={() => {
+              setArtistModalOpen("");
+            }}
+            pressekit="https://www.dropbox.com/scl/fo/469tk29rrshzwf77f8z97/h?dl=0&rlkey=fclm8nd6x8onjvnqftpm7ypw9"
+            name="Michelsen & Bramsen"
+            instagram="https://www.instagram.com/michelsenogbramsen/"
+            spotify="https://open.spotify.com/album/6O8eBmpGwQnoUTmuziTn3l?si=8WtIGi9uQpqafak6pjZbbA"
+            facebook="https://www.facebook.com/annedorteogmaria"
+            image="/presse_kit/MICHELSEN & BRAMSEN/Michelsen & Bramsen(1).jpg"
+            description="De er helt færdige med at blive kaldt piger. Færdige med at være ’Tøsepigerne’ eller ’Anne Dorte og Maria’. Det nye navn på den kendte duo er, MICHELSEN & BRAMSEN og ganske som med navnet har også de populære sange fået et nutidigt tvist.
+
+            ’Indianer’ og ’Ud under åben himmel’ er nogle af de kæmpehits, Michelsen & Bramsen var med til at skabe i 80’erne – sange, som vi stadig skråler med på, og som for de fleste har været soundtracket til deres ungdom.
+            
+            Men i stedet for at sætte fortiden på repeat som en kopi af sig selv, har duoen valgt at trække deres legendariske og genkendelige repertoire ind i nutiden med række nyfortolkninger.
+            
+            Med nerve og skarphed spiller Michelsen & Bramsen sammen med deres faste band, der består af nogle af landets bedste og mest respekterede musikere. I en moderne kontekst får musikken lov at leve, så publikum mærker den nye energi.
+            
+            At holde sig aktuelle og relevante er stadig et fokus for Michelsen & Bramsen, som én gang for alle har valgt at se deres kvindelighed som en styrke:
+            
+            ”Vi lever i en tid med store forandringer i vores branche. Der hvor vi kom fra, var kvinderne så få, at man måtte kæmpe alene. Men i dag føler vi os som en del af et stort fællesskab af kvinder, som skaber og performer musik på egne betingelser. Det giver et stort rygstød”.
+            
+            Lyt og syng selv med, når de to seje artister bringer hits som ’Jeg vil la’ lyset brænde’, ‘Sig – du ka’ li’ mig’ og mange flere tilbage til scenen foran et publikum, der stadig hylder 80’erne og 90’ernes musikalske storhedstid."
+          />
+        )}
+        {artistModalOpen === "Zididada" && (
+          <ArtistModal
+            book={() => {
+              setArtistModalOpen("");
+              scrollTo(0, 0);
+              setBookingModalOpen(true);
+            }}
+            pressekit="https://www.dropbox.com/sh/guw1w4xomzk3le6/AACKArh-rwd0j4FKScYvlz75a?dl=0"
+            name="Zididada"
+            instagram="https://www.instagram.com/zididada_official/"
+            spotify="https://open.spotify.com/artist/0KPG6aJ67hbMAG9WkE5VvQ?si=D1P0V_smTRa35SmVVYme3A"
+            facebook="https://www.facebook.com/zididadaday"
+            image="/presse_kit/ZIDIDADA/Zididada - Presse Foto.jpg"
+            description="“Du ved sikkert godt hvem de er, og hvad de står for”. (men alligevel) ZIDIDADA er bandet, der introducerede Evig Sol til det danske publikum. I to årtier har de turneret land og rige rundt med hits som bla. Please ya Lisa, Walking on Water og Princesse. Uanset om du har oplevet ZIDIDADA under bøgen i Skanderborg eller på en ukendt mark i Nordsjælland, vil du kunne nikke genkendende til bandets altid positive og smittende budskab.
+
+            De debuterede i 1999, og med Jimmy og Danny som stiftere, fik de hurtigt samlet det hold, der stadig i dag står på scenen weekend efter weekend.
+            I 2012 søgte Danny andre veje, og nu er de 6 mand.
+            
+            ZIDIDADA har løbende udgivet albums og er i skrivende stund på vej med det 8. album. Med producer Carsten Mintman Mortensen ved roret, er bandet nu for første gang på vej med et dansk album!
+            
+            Forsanger Jimmy Bacoll (før Colding), udtaler: “Lysten til at skrive danske sange har altid været tilstede, men vi har aldrig rigtig følt os rustet til et udelukkende dansk album. Men med Mintman og lidt hjælp udefra på lyrikken, mener vi bestemt, at vi har et par stærke bud på glad og ubekymret “lige ud af posen” ZIDIDADA – sange”.
+            
+            Drengene har efter singlen Prinsesse, der udkom i 2004, drømt om at kunne følge op på succesen, og nu er drømmen blevet til virkelighed.
+            
+            Foreløbig er de ude med singlerne Lå Lå Lå og Sommersang. Stilmæssigt er der ingen love og regler i ZIDIDADA, men reggae har altid stået bandets hjerte nær. Samtidig har festen altid været det centrale omdrejningspunkt, og den fortsætter langt ud i fremtiden."
+            onClick={() => {
+              setArtistModalOpen("");
+            }}
+          />
+        )}
+        {artistModalOpen === "Faustix" && (
+          <ArtistModal
+            book={() => {
+              setArtistModalOpen("");
+              scrollTo(0, 0);
+              setBookingModalOpen(true);
+            }}
+            pressekit="https://www.dropbox.com/scl/fo/3rt0nauchoyem4z0ma8s3/h?dl=0&rlkey=hnkyrc7k8t0pfv5qwpqu0w4q5"
+            name="Faustix"
+            instagram="https://www.instagram.com/faustix/"
+            spotify="https://open.spotify.com/artist/6jPriOYMyUL9kNonBI1CNd?si=aZLgLQR8TPexC26Qau6NXg"
+            facebook="https://www.facebook.com/FaustixMusic"
+            image="/presse_kit/FAUSTIX/Faustix_november2022_@Nikolaj Osorio_WEB_4.jpg"
+            description="Faustix er en dansk DJ og producer som i over 10 år har gjort sig bemærket på den danske musikscene. Han har lavet musik med flere internationale artister, blandt andet med top producere og artister som Diplo, Major Lazer, Chris Brown, David Guetta og mange flere.
+
+            I Danmark har Faustix vundet et hav af priser ved landets awardshows og har de seneste år også gjort sig bemærket med imponerende liveshows bl.a. hos Tinderbox og SmukFest. Faustix har også uden for musikscenen deltaget i flere TV programmer. Blandt andet har hans TV program “The Olsens” med hans familie flere sæsoner liggende på Discovery+, og Faustix deltog i 2020 i Vild Med Dans – en performance der bestemt gav Hr. og Fru. Danmark et nyt syn på den sympatiske DJ."
+            onClick={() => {
+              setArtistModalOpen("");
+            }}
+          />
+        )}
+        {artistModalOpen === "Italobrothers" && (
+          <ArtistModal
+            book={() => {
+              setArtistModalOpen("");
+              scrollTo(0, 0);
+              setBookingModalOpen(true);
+            }}
+            pressekit="https://www.dropbox.com/sh/uen2vnb2cnrfytj/AABAXb6u2HfIxt7-5VlJOKqca?dl=0"
+            name="ItaloBrothers"
+            instagram="https://www.instagram.com/italobrothersofficial/"
+            spotify="https://open.spotify.com/artist/5nkYRuiIHg2xXHFC8bfosJ?si=RiyvLC0pSw61izPg0jMs1g"
+            facebook="https://www.facebook.com/ItaloBrothers"
+            image="/presse_kit/ITALOBROTHERS/3F0A4859.jpg"
+            description="Over én milliard streams alene på Spotify, multi-platin-priser i flere lande, udsolgte shows over hele verden. Der er nok ikke mange tyske kunstnere, der kan se tilbage på sådan en succeshistorie som ITALOBROTHERS kan?!
+
+            Med hits som “Stamp on the Ground”, “Summer Air” eller “My Life is a Party” har ITALOBROTHERS opnået verdensomspændende succes og holdet er klar til at tilføje flere kapitler til denne historie!"
+            onClick={() => {
+              setArtistModalOpen("");
+            }}
+          />
+        )}
+        {artistModalOpen === "Basshunter" && (
+          <ArtistModal
+            book={() => {
+              setArtistModalOpen("");
+              scrollTo(0, 0);
+              setBookingModalOpen(true);
+            }}
+            pressekit="https://www.dropbox.com/sh/v8v1i1lb6sqq7ox/AADYC-MdgFznZt4MOi9aObbUa?dl=0"
+            name="Basshunter"
+            instagram="https://www.instagram.com/basshunter_se/"
+            spotify="https://open.spotify.com/artist/37DdwREpvvQHmGLFEZ4h0Q?si=FG_ENyVXR0yGZVQugtpzgQ"
+            facebook="https://www.facebook.com/Basshunter.se/"
+            image="/presse_kit/BASSHUNTER/Basshunter - Presse Foto 1.jpg"
+            description="Jonas Erik Altberg, bedre kendt som Basshunter indhyller natten i 00’er nostalgi og tunge toner når han tager sine mange hits med på scenen. Den svenske musikproducer og DJ slog igennem i 2006 med monsterhittet og landeplagen ’Boten Anna’ og det internationale kæmpehit ’DotA’ og fulgte i 2008 op med det største hit ’All I Ever Wanted’ med over 850mio. streams.
+
+            Basshunter har over 1 milliard views på Youtube. 6 millioner solgte album. 2,75 millioner følgere på facebook. Basshunter er den ultimative bass-skaber der sætter skub i en hver fest."
             onClick={() => {
               setArtistModalOpen("");
             }}
@@ -325,43 +454,34 @@ export default function Home() {
                 />
                 {/* Artist 2 */}
                 <ArtistCard
-                  onClick={() => console.log("clicked")}
+                  onClick={() => setArtistModalOpen("michelsen & bramsen")}
                   name="Michelsen & Bramsen"
                   image="/presse_kit/MICHELSEN & BRAMSEN/Michelsen & Bramsen(1).jpg"
                 />
                 {/* Artist 3 */}
                 <ArtistCard
-                  onClick={() => console.log("clicked")}
+                  onClick={() => setArtistModalOpen("Zididada")}
                   name="Zididada"
                   image="/presse_kit/ZIDIDADA/Zididada - Presse Foto.jpg"
                 />
                 {/* Artist 4 */}
                 <ArtistCard
-                  onClick={() => console.log("clicked")}
+                  onClick={() => setArtistModalOpen("Faustix")}
                   name="Faustix"
                   image="/presse_kit/FAUSTIX/Faustix_november2022_@Nikolaj Osorio_WEB_4.jpg"
                 />
                 {/* Artist 5 */}
                 <ArtistCard
-                  onClick={() => console.log("clicked")}
-                  name="Italo Brothers"
+                  onClick={() => setArtistModalOpen("Italobrothers")}
+                  name="ItaloBrothers"
                   image="/presse_kit/ITALOBROTHERS/3F0A4859.jpg"
                 />
                 {/* Artist 6 */}
-                <div className="  relative aspect-[5/7] h-[28rem] cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300 ">
-                  <div className=" top-0 left-0 z-10 absolute w-full h-full flex flex-col items-center justify-end py-20">
-                    <h3 className=" text-center z-10 uppercase text-3xl text-white drop-shadow-lg ">
-                      Basshunter
-                    </h3>
-                  </div>
-                  <Image
-                    alt="Basshunter"
-                    width={500}
-                    height={700}
-                    className=" z-0 object-cover h-full top-0 left-0 absolute"
-                    src="/presse_kit/BASSHUNTER/Basshunter - Presse Foto 1.jpg"
-                  />
-                </div>
+                <ArtistCard
+                  onClick={() => setArtistModalOpen("Basshunter")}
+                  name="Basshunter"
+                  image="/presse_kit/BASSHUNTER/Basshunter - Presse Foto 1.jpg"
+                />
               </div>
               <Link
                 href="/artists"

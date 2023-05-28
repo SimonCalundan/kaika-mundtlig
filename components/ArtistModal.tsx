@@ -12,6 +12,7 @@ interface ArtistModalProps {
   onClick: () => void;
   facebook: string;
   instagram: string;
+  book: () => void;
 }
 
 const ArtistModal: React.FC<ArtistModalProps> = ({
@@ -22,6 +23,7 @@ const ArtistModal: React.FC<ArtistModalProps> = ({
   facebook,
   instagram,
   pressekit,
+  book,
 
   onClick,
 }) => {
@@ -97,12 +99,12 @@ const ArtistModal: React.FC<ArtistModalProps> = ({
             >
               Pressekit
             </Link>
-            <Link
+            <button
               className=" w-40 flex justify-center py-2 px-6 border-2 border-mauve text-space-cadet bg-mauve font-semibold uppercase text-sm hover:bg-space-cadet hover:text-mauve transition-all"
-              href="/"
+              onClick={book}
             >
               Book Artist
-            </Link>
+            </button>
           </div>
         </div>
       </div>

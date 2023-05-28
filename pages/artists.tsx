@@ -293,7 +293,7 @@ const artists = () => {
                 type="text"
               />
             </div>
-            <div className=" flex gap-2">
+            <div className=" flex gap-2 bg-space-cadet">
               {alfabet.map((letter) => (
                 <button
                   onClick={() => {
@@ -313,6 +313,15 @@ const artists = () => {
                 </button>
               ))}
             </div>
+            <button
+              onClick={() => {
+                setCurrentLetter("");
+                setFilter("");
+              }}
+              className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white bg-space-cadet border-2  border-rose hover:bg-rose hover:text-space-cadet transition-all duration-300"
+            >
+              Nulstil
+            </button>
           </div>
           {/* Artist cards */}
           <div className=" mx-auto [&>*:nth-child(even)]:translate-y-20 w-full flex flex-wrap justify-center gap-12 max-w-7xl mt-20">
