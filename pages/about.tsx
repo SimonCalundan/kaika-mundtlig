@@ -283,16 +283,16 @@ const about = () => {
           {/* Text wrapper */}
           <div className=" text-white flex flex-col justify-center items-start gap-y-4 max-w-6xl mx-auto">
             <h2 className=" text-4xl uppercase font-bold mb-10">
-              Kaikas værdier
+              KAIKAS SERVICES
             </h2>
             <p className=" ml-10 text-xl max-w-4xl leading-8">
-              Kaika Music har fire værdisæt, som alle medarbejdere handler ud
-              fra. Disse værdier er vigtige for vores daglige arbejde og vores
-              relationer med andre. De fire værdier er: at holde aftaler,
-              kommunikation, engagement og initiativ. Vi fokuserer på at
-              overholde aftaler, have en åben og ligefrem kommunikation, vise
-              engagement og tage initiativ til at finde nye muligheder. Disse
-              værdier er afgørende for at skabe gode oplevelser og relationer.
+              Kaika Music tilbyder forskellige services, herunder musik, lyd/lys
+              og scener til arrangementer som foreningsarrangementer,
+              firmaarrangementer, byfester og markeder. Vi kan hjælpe med alt
+              det praktiske omkring planlægning og afvikling af et arrangement.
+              Kaika Music har stor erfaring og kontakterne til at få et
+              arrangement til at lykkes, og vi går målrettet efter at levere
+              branchens bedste service hver gang.
             </p>
           </div>
         </div>
