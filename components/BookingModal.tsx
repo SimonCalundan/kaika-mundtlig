@@ -143,7 +143,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ onClick }) => {
               className="
             text-2xl font-bold text-sunglow uppercase animate-pulse"
             >
-              indlæser...
+              sender...
             </h2>
           </div>
         )}
