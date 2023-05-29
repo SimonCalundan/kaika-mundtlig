@@ -371,7 +371,7 @@ export default function Home() {
                 delay: 50,
                 strings: [
                   "Landsdækkende booking bureau",
-                  "Booking af bands, solister, standup og meget mere",
+                  "Booking af bands, solister og meget mere",
                   "Hundredevis af tilfredse kunder",
                 ],
                 autoStart: true,
