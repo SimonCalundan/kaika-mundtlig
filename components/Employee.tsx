@@ -32,7 +32,12 @@ const Employee: React.FC<EmployeeProps> = ({
       <div className="flex flex-col gap-4">
         <h2 className=" text-mauve uppercase font-bold text-xl">{title}</h2>
         <p className="uppercase text-white text-lg">{name}</p>
-        <p className="uppercase text-white text-lg">{mail}</p>
+        <a
+          href={`mailto:${mail}`}
+          className="uppercase hover:text-sunglow transition-all text-white text-lg"
+        >
+          {mail}
+        </a>
         <p className="uppercase text-white text-lg">{phone}</p>
       </div>
     </div>
