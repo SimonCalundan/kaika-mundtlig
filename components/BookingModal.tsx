@@ -128,7 +128,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ onClick }) => {
                 }, 1000);
                 setTimeout(() => {
                   onClick();
-                }, 2000);
+                }, 4000);
               }}
               className="uppercase flex justify-center text-sm items-center py-2 px-4 font-semibold text-white border  border-mauve hover:bg-mauve hover:text-space-cadet transition-all duration-300"
               type="submit"
